@@ -5,18 +5,19 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Landing extends AppCompatActivity {
-    Button landingCameraButton;
+    ImageButton landingCameraButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
-        landingCameraButton = findViewById(R.id.camerabuttontest);
+        landingCameraButton = findViewById(R.id.cameraimagebutton);
         landingCameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

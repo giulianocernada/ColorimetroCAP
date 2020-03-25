@@ -1,10 +1,10 @@
 package cap.intervencion.colorimetrocap;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,13 +17,23 @@ public class Landing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
-        landingCameraButton = findViewById(R.id.cameraimagebutton);
+        landingCameraButton = findViewById(R.id.landingcamerabutton);
         landingCameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 launchCamera();
             }
         });
+    }
+
+    public void goToWebsite (View view) {
+        goToUrl( "https://cooperativapampero.coop");
+    }
+
+    private void goToUrl(String url){
+        Uri uriUrl = Uri.parse(url);
+        Intent WebView = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(WebView);
     }
 
     static final int REQUEST_IMAGE_CAPTURE = 1;

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Colorimetro CAP</string>
+    <string name="cap_site"><a href='http://google.com'></a></string>
 </resources>

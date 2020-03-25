@@ -7,22 +7,22 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class Landing extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_landing);
 
-        configureLoginLoginButton();
+        configureLandingBackButton();
     }
 
-    private void configureLoginLoginButton() {
-        Button loginLoginButton = (Button) findViewById(R.id.loginloginbutton);
-        loginLoginButton.setOnClickListener(new View.OnClickListener() {
+    private void configureLandingBackButton() {
+        Button landingBackButton = (Button) findViewById(R.id.landingbackbutton);
+        landingBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Landing.class));
+                startActivity(new Intent(Landing.this, MainActivity.class));
             }
         });
     }
@@ -61,7 +61,4 @@ public class MainActivity extends AppCompatActivity {
 //                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 //                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 //    }
-
-    
 }
-

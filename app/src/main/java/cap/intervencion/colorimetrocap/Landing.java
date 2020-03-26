@@ -12,11 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Landing extends AppCompatActivity {
     ImageButton landingCameraButton;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
+
         landingCameraButton = findViewById(R.id.landingcamerabutton);
         landingCameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +26,7 @@ public class Landing extends AppCompatActivity {
         });
     }
 
+    //IR AL SITIO WEB. ACA DECLARO EL METODO goToWebsite y en el archivo XML esta el onClick que lo inicia, asociado al boton info
     public void goToWebsite (View view) {
         goToUrl( "https://cooperativapampero.coop");
     }
@@ -36,6 +37,7 @@ public class Landing extends AppCompatActivity {
         startActivity(WebView);
     }
 
+    //CAMARA
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private void launchCamera() {
@@ -44,5 +46,4 @@ public class Landing extends AppCompatActivity {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
-
 }

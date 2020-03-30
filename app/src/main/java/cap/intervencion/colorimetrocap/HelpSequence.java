@@ -107,6 +107,5 @@ public class HelpSequence extends AppCompatActivity implements View.OnClickListe
                         .withRectangleShape()
                         .build()
         );
-
         sequence.start(); }
 }

@@ -9,11 +9,18 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseSequence;
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
+import uk.co.deanwild.materialshowcaseview.ShowcaseConfig;
+
 public class Landing extends AppCompatActivity implements View.OnClickListener {
     ImageButton landingCameraButton;
     ImageButton landingHelpButton;
+    ImageButton landingInfoButton;
+    ImageButton landingLogButton;
 
-
+    //A PARTIR DE ACÁ
+    private static final String SHOWCASE_ID = "sequence example";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +35,14 @@ public class Landing extends AppCompatActivity implements View.OnClickListener {
             }
         });
         landingHelpButton = findViewById(R.id.landingHelpButton);
-        landingHelpButton.setOnClickListener(this);
+        landingHelpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presentShowcaseSequence();
+            }
+        });
+        landingLogButton = findViewById(R.id.landingLogButton);
+        landingInfoButton = findViewById(R.id.landingInfoButton);
     }
 
     //IR AL SITIO WEB. ACA DECLARO EL METODO goToWebsite y en el archivo XML esta el onClick que lo inicia, asociado al boton info
@@ -55,16 +69,40 @@ public class Landing extends AppCompatActivity implements View.OnClickListener {
     //SHOWCASE
     @Override
     public void onClick(View v) {
-        Intent intent = null;
 
-        switch (v.getId()) {
-            case R.id.landingHelpButton:
-                intent = new Intent(this, HelpSequence.class);
-                break;
-        }
+        if (v.getId() == R.id.helpcamerabutton || v.getId() == R.id.helpLogButton || v.getId() == R.id.helpInfoButton) {
 
-        if (intent != null) {
-            startActivity(intent);
+            presentShowcaseSequence();
         }
     }
+
+    private void presentShowcaseSequence() {
+
+        ShowcaseConfig config = new ShowcaseConfig();
+        config.setDelay(500); // half second between each showcase view
+
+        MaterialShowcaseSequence sequence = new MaterialShowcaseSequence(this, SHOWCASE_ID);
+
+        sequence.setConfig(config);
+
+        sequence.addSequenceItem(landingCameraButton, "Acceder a la cámara para tomar muestra", "OK");
+
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(landingLogButton)
+                        .setDismissText("OK")
+                        .setContentText("Acceder al registro de muestras")
+                        .build()
+        );
+
+        sequence.addSequenceItem(
+                new MaterialShowcaseView.Builder(this)
+                        .setTarget(landingInfoButton)
+                        .setDismissText("OK")
+                        .setContentText("Visitar el sitio web de la CAP")
+                        .build()
+        );
+        sequence.start();
+        MaterialShowcaseView.resetSingleUse(this, SHOWCASE_ID);
+        }
 }

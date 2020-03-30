@@ -8,7 +8,7 @@
     tools:context=".Landing">
 
     <ImageView
-        android:id="@+id/landingLogoColorimetro"
+        android:id="@+id/helpLogoColorimetro"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="32dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/lococap" />
 
     <ImageView
-        android:id="@+id/landingDetailLogo"
+        android:id="@+id/helpDetailLogo"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/logobasecap" />
 
     <ImageButton
-        android:id="@+id/landingcamerabutton"
+        android:id="@+id/helpcamerabutton"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="64dp"
@@ -37,11 +37,11 @@
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/landingLogoColorimetro"
+        app:layout_constraintTop_toBottomOf="@+id/helpLogoColorimetro"
         app:srcCompat="@drawable/menucameraicon" />
 
     <ImageButton
-        android:id="@+id/landingLogButton"
+        android:id="@+id/helpLogButton"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginStart="50dp"
@@ -49,11 +49,11 @@
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/landingcamerabutton"
+        app:layout_constraintTop_toBottomOf="@+id/helpcamerabutton"
         app:srcCompat="@drawable/logicon" />
 
     <ImageButton
-        android:id="@+id/landingInfoButton"
+        android:id="@+id/helpInfoButton"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginTop="64dp"
@@ -62,11 +62,11 @@
         android:onClick="goToWebsite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/landingcamerabutton"
+        app:layout_constraintTop_toBottomOf="@+id/helpcamerabutton"
         app:srcCompat="@drawable/infoicon" />
 
     <ImageButton
-        android:id="@+id/landingHelpButton"
+        android:id="@+id/helpHelpButton"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginTop="64dp"
@@ -74,6 +74,17 @@
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/landingcamerabutton"
+        app:layout_constraintTop_toBottomOf="@+id/helpcamerabutton"
         app:srcCompat="@drawable/helpicon" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/helpCloseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Cerrar ayuda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpInfoButton" />
+    <!--</RelativeLayout>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>

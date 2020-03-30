@@ -9,8 +9,11 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Landing extends AppCompatActivity {
+public class Landing extends AppCompatActivity implements View.OnClickListener {
     ImageButton landingCameraButton;
+    ImageButton landingHelpButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,8 @@ public class Landing extends AppCompatActivity {
                 launchCamera();
             }
         });
+        landingHelpButton = findViewById(R.id.landingHelpButton);
+        landingHelpButton.setOnClickListener(this);
     }
 
     //IR AL SITIO WEB. ACA DECLARO EL METODO goToWebsite y en el archivo XML esta el onClick que lo inicia, asociado al boton info
@@ -44,6 +49,22 @@ public class Landing extends AppCompatActivity {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    //SHOWCASE
+    @Override
+    public void onClick(View v) {
+        Intent intent = null;
+
+        switch (v.getId()) {
+            case R.id.landingHelpButton:
+                intent = new Intent(this, HelpSequence.class);
+                break;
+        }
+
+        if (intent != null) {
+            startActivity(intent);
         }
     }
 }
